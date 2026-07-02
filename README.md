@@ -183,25 +183,43 @@ Time: 7.0 s | Speed: 8408.0 Mkeys/s | Count: 58545467200 | Progress: 0.17 %
 ```
 **RTX3070 mobile**
 ```bash
-./CUDACyclone --range 2000000000:3FFFFFFFFF --address 1HBtApAFA9B2YZw3G2YKSMCtb3dVnjuNe2 --grid 512,256
-======== PrePhase: GPU Information ====================
-Device               : NVIDIA GeForce RTX 3070 Laptop GPU (compute 8.6)
-SM                   : 40
+./run_auto.sh
+==================================================================
+ CUDACyclone auto-restart
+ Range   : 666666666666666666:7FFFFFFFFFFFFFFFFF
+ Address : 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU
+ Grid    : 128,128   Args: --random
+ Log     : ./logs/run_20260701_145600.log
+ Início  : 2026-07-01 14:56:00
+ (Ctrl-C para parar)
+==================================================================
+[14:56:00] Tentativa #1 — iniciando busca...
+======== PrePhase: GPU Information (2 GPUs) ===
+  GPU 0 : NVIDIA GeForce RTX 3060  |  28 SMs  |  11.6 GB
+  GPU 1 : NVIDIA GeForce GTX 1070  |  15 SMs  |  7.92 GB
+======================================================= 
+
+======== GPU 0 : NVIDIA GeForce RTX 3060 (compute 8.6) ========
+SM                   : 28
 ThreadsPerBlock      : 256
-Blocks               : 8192
-Points batch size    : 512
-Batches/SM           : 256
+Blocks               : 3584
+Total threads        : 917504
+Points batch size    : 128
+Batches/SM           : 128
 Batches/launch       : 64 (per thread)
-Memory utilization   : 64.0% (5.12 GB / 8.00 GB)
--------------------------------------------------------
-Total threads        : 2097152
+Memory utilization   : 16.2% (1.88 GB / 11.6 GB)
+------------------------------------------------------- 
+======== GPU 1 : NVIDIA GeForce GTX 1070 (compute 6.1) ========
+SM                   : 15
+ThreadsPerBlock      : 256
+Blocks               : 1920
+Total threads        : 491520
+Points batch size    : 128
+Batches/SM           : 128
+Batches/launch       : 64 (per thread)
+Memory utilization   : 13.4% (1.06 GB / 7.92 GB)
+------------------------------------------------------- 
 
-======== Phase-1: BruteForce (sliced) =================
-Time: 61.2 s | Speed: 1234.3 Mkeys/s | Count: 72707573152 | Progress: 52.90 %
-
-======== FOUND MATCH! =================================
-Private Key   : 00000000000000000000000000000000000000000000000000000022382FACD0
-Public Key    : 03C060E1E3771CBECCB38E119C2414702F3F5181A89652538851D2E3886BDD70C6
 ```
 ## 🛠️ Setup & Build
 
