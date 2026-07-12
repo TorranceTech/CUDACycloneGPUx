@@ -26,22 +26,42 @@ usage: proof.py [-h] --range RANGE_ARG [--cyclone-path CYCLONE_PATH] [--grid GRI
 ```
 Sample start
 ```
-python3 proof.py --range 200000000:3FFFFFFFF --grid 512,512
+./CUDACyclone --range 666666666666666666:7FFFFFFFFFFFFFFFFF \
+--address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --grid 128,128 --random
 ```
 Results
 ```
-================ Summary by blocks ================
-Range start A (start+2k)           : total= 128  success= 128  fail=   0
-Range start B (start+1+2k)         : total= 128  success= 128  fail=   0
-Range end A (end-2k)               : total= 128  success= 128  fail=   0
-Range end B (end-1-2k)             : total= 128  success= 128  fail=   0
-Full mod 512 residue coverage      : total= 256  success= 256  fail=   0
-Random Q1 (0–25%)                  : total=  20  success=  20  fail=   0
-Random Q2 (25–50%)                 : total=  20  success=  20  fail=   0
-Random Q3 (50–75%)                 : total=  20  success=  20  fail=   0
-Random Q4 (75–100%)                : total=  20  success=  20  fail=   0
+./CUDACyclone --range 666666666666666666:7FFFFFFFFFFFFFFFFF \
+    --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --grid 128,128 --random
+======== PrePhase: GPU Information (2 GPUs) ===
+  GPU 0 : NVIDIA GeForce RTX 3060  |  28 SMs  |  11.6 GB
+  GPU 1 : NVIDIA GeForce GTX 1070  |  15 SMs  |  7.92 GB
+======================================================= 
 
-Done. Results in cyclone_tests_results.txt. Successes=848 Failures=0
+======== GPU 0 : NVIDIA GeForce RTX 3060 (compute 8.6) ========
+SM                   : 28
+ThreadsPerBlock      : 256
+Blocks               : 3584
+Total threads        : 917504
+Points batch size    : 128
+Batches/SM           : 128
+Batches/launch       : 64 (per thread)
+Memory utilization   : 5.5% (649.6 MB / 11.6 GB)
+------------------------------------------------------- 
+======== GPU 1 : NVIDIA GeForce GTX 1070 (compute 6.1) ========
+SM                   : 15
+ThreadsPerBlock      : 256
+Blocks               : 1920
+Total threads        : 491520
+Points batch size    : 128
+Batches/SM           : 128
+Batches/launch       : 64 (per thread)
+Memory utilization   : 2.4% (193.0 MB / 7.92 GB)
+------------------------------------------------------- 
+
+======== Phase-1: Lottery / Random Jump (2 GPUs) =====
+(random mode: ~8K keys/thread per chunk; lower --slices = more frequent jumps)
+Time: 27.0   s | Speed: 1.25    Gkeys/s | Count: 32158392832    | Chunks: 6 
 ```
 
 After speed upgrade on RTX 4060 - tests
