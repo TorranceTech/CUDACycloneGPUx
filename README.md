@@ -26,6 +26,11 @@ usage: proof.py [-h] --range RANGE_ARG [--cyclone-path CYCLONE_PATH] [--grid GRI
 ```
 Sample start
 ```
+[--cyclone-path CYCLONE_PATH] 
+CUDACyclone
+./run_auto.sh
+```
+```
 ./CUDACyclone --range 666666666666666666:7FFFFFFFFFFFFFFFFF \
 --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --grid 128,128 --random
 ```
