@@ -255,5 +255,4 @@ Thanks to the original work that served as the foundation for this project.
 
 ---
 
-## ✌️**TIPS**
-BTC: bc1q7s4m9cwlq8xtx2nz74mquh6ax0jqwsmkkd56s3
+
